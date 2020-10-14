@@ -1,0 +1,116 @@
+main {
+    display: grid;
+    grid-template-areas:
+        "header"
+        "nav"
+        "aside"
+        "section"
+        "article"
+        "footer";
+}
+header {grid-area: header;}
+nav {grid-area: nav;}
+article {grid-area: article;}
+footer {grid-area: footer;}
+
+body {
+    background-color: rgb(47,49,54);
+}
+h1 {
+    color: white;
+}
+
+h4 {
+    color: white;
+}
+
+p {
+    color: white;
+}
+
+main {
+    grid-template-columns: repeat (1, 1fr);
+    grid-template-areas:
+        "header"
+        "nav"
+        "aside"
+        "section"
+        "article"
+        "footer";
+}
+
+/* header */
+header {
+    padding: 10px;
+}
+.chatId {
+    color: black;
+    float: left;
+    margin-left: 5px;
+    padding: 10px;
+}
+.buttonClose {
+    float: right;
+    padding: 7px;
+}
+
+/* nav */
+nav {
+    text-align: center;
+}
+.playerAvatar {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border: 10px double rgb(255, 255, 255);
+}
+
+/* aside */
+aside {
+    text-align: center;
+}
+
+/* section */
+.overview2 {
+    text-align: center;
+}
+div#preferences {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 1fr;
+}
+#preferences>div {
+    text-align: center;
+}
+#preferences>div>img {
+    border-radius: 5px;
+    height: 60px;
+    width: 60px;
+    object-fit: cover;
+}
+
+/* article */
+article {
+    text-align: center;
+}
+
+/* footer */
+.buttonJoin {
+    display: flex;
+    justify-content: center;
+}
+
+/* button */
+.button {
+    background-color: green;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}

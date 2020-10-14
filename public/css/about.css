@@ -1,0 +1,31 @@
+body {
+  background-color: rgb(47,49,54);
+}
+
+p.copy {
+  position: relative;
+  top: 50px;
+  color: white;
+}
+p.first {
+  color: white;
+}
+
+h2.first {
+  color: white;
+}
+
+.buttonHome {
+  display: flex;
+  justify-content: center;
+}
+
+/* Tablet view */
+@media (min-width: 500px) and (max-width: 1000px) {
+  .logo {
+    text-align: center;
+  }
+  .col-lg-6 {
+    text-align: left;
+  }
+}

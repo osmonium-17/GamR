@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GamR | Profile </title>
+  <link rel="shortcut icon" href="../images/favicon.ico">
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <!-- Firebase -->
+  <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+    integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+  <!-- Main Page CSS -->
+  <link rel="stylesheet" href="/css/profile.css">
+
+  <!-- Font Awesome JS -->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
+    integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous">
+  </script>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
+    integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous">
+  </script>
+
+  <!-- Popper.JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+    integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous">
+  </script>
+  <!-- Bootstrap JS -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+    integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous">
+  </script>
+</head>
+
+<body>
+  <main id="containall">
+    <!-- Sidebar  -->
+    <aside id="aside-sidebar">
+      <nav id="sidebar">
+        <!-- Sidebar logo -->
+        <div class="sidebar-header active">
+          <img id="team-logo" class="active" src="images/logo.png">
+        </div>
+
+        <!-- Sidebar selections -->
+        <ul class="list-unstyled components">
+          <li>
+            <!-- General -->
+            <a id="main-geneneral-btn" href="/main">
+              <i class="fas fa-cubes"></i>
+              <h6>General</h6>
+            </a>
+
+            <!-- Find Players -->
+            <!-- <a href="#pageSubmenu" href="/findPlayer" data-toggle="collapse" aria-expanded="false">
+              <i class="fas fa-hands-helping"></i>
+              <h6>Find Players</h6>
+            </a> -->
+          </li>
+
+          <!-- Profile -->
+          <li>
+            <a href="#" id='profile-btn-sidebar-box'>
+              <i class="fas fa-address-card"></i>
+              <h6>Profile</h6>
+            </a>
+          </li>
+          <!-- End -->
+
+          <!-- About Us -->
+          <li>
+            <a href="/aboutus">
+              <i id='aboutusicon' class="fas fa-coffee"></i>
+              <h6>About Us</h6>
+            </a>
+          </li>
+          <!-- End -->
+
+          <!-- Toggle Menu -->
+          <li id="toggleList">
+            <a href="#" id="sidebarCollapse">
+              <i id='toggleicon' class="fas fa-angle-double-left"></i>
+              <h6>Toggle Menu</h6>
+            </a>
+          </li>
+          <!-- End -->
+        </ul>
+
+        <!-- Logout -->
+        <ul class="list-unstyled components settings">
+          <li>
+            <a href="/logout" id="sidebarCollapse">
+              <i class="fas fa-power-off"></i>
+              <h6>Logout</h6>
+            </a>
+          </li>
+        </ul>
+        <!-- End -->
+      </nav>
+    </aside>
+
+    <!-- Header -->
+    <header id='player-avatar-header'>
+      <div id='playeravi-space' class="player-area">
+        <!-- Player Name -->
+        <div id="profileName">
+          <h3 id='playerTitle'><%=name%></h3>
+        </div>
+
+        <!-- Profile photo -->
+        <img src="<%=avatar%>" class="rounded-circle avatar">
+
+        <!-- Player status -->
+        <div class="dropdown dropleft">
+          <!-- Status indicator -->
+          <img id='statusbox' name="<%=status%>" class="btn btn-secondary dropdown-toggle" type="button"
+            id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <!-- Status dropdown menu -->
+          <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <button class="dropdown-item" type="button" id='onlineplayer'>Online</button>
+            <button class="dropdown-item" type="button" id='awayplayer'>Away</button>
+            <button class="dropdown-item" type="button" id='dndplayer'>Do Not Disturb</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section id='profile-body'>
+      <div id='userDetails'>
+        <div id='userImgBtnSpace'>
+          <!-- Profile photo -->
+          <article id="profilePhoto">
+            <div id="profileAvatar">
+              <img class="rounded-circle avatar userpageAvatar" src=<%=avatar%>>
+              <article id="profileButton">
+                <div id="playerProfile-buttonBox" class="align-middle">
+                  <button id="edit-profile-btn" class="btn-purple-gradient btn btn-outline-info">Edit Profile</button>
+                  <!-- NOT IMPLEMENTED WELL -->
+                  <!-- <button id="block-profile-btn" class="btn-purple-gradient btn btn-outline-info"
+                    onclick="location.href = '/blockList'">Blocked Players</button> -->
+                  <!-- NOT IMPLEMENTED WELL -->
+                </div>
+              </article>
+            </div>
+
+          </article>
+
+          <div id='platforms-columns'>
+            <div id='social-platforms'>
+              <% for(social in socials) {%>
+                <div>
+                  <img src="<%= socials[social].imageURL %>">
+                </div>
+                <% } %>
+            </div>
+            <div id="platform-space" class="platform-space">
+              <% for(platform in platforms) { %>
+                <div>
+                  <img src="<%= platforms[platform].imageURL %>">
+                </div>
+                <% } %>
+            </div>
+          </div>
+        </div>
+
+        
+
+        <!-- Profile description -->
+        <article id="profileDescription">
+          <h3>About Me: </h3>
+          <div id='player-description'>
+            <p><%=bio%></p>
+          </div>
+        </article>
+      </div>
+
+      <!-- Games -->
+      <article id="gamesList">
+        <div id="div-games">
+          <h3>My Library</h3>
+        </div>
+        <!-- Games images -->
+        <div id='gametitle-space' class='game-space'>
+          <% for(title in titles) { %>
+            <div>
+              <a href="/session/<%= titles[title].titleID %>">
+                <img src="<%= titles[title].coverURL %>">
+              </a>
+            </div>
+            <% } %>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <!-- Javascript -->
+  <script src="/scripts/status.js"></script>
+  <script src="/scripts/profile.js">
+    console.log("TEST " + gameArray);
+  </script>
+</body>
+
+</html>

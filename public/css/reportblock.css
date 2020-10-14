@@ -1,0 +1,82 @@
+/* Closer */
+div.modal-closer {
+    display: flex;
+    justify-content: flex-end;
+    background-color: rgb(78, 65, 92);
+    border: none;
+    border-radius: 0;
+    height: 2em;
+    padding: 5px;
+}
+
+/* Header */
+div.modal-header {
+    background-color: rgb(78, 65, 92);
+    border-color: rgb(78, 65, 92);
+    border-bottom: 4px solid rgb(40, 24, 56);
+    color: white;
+    border-radius:0;
+}
+div.modal-header > h5 {
+    margin:auto;
+}
+div.modal-header>img {
+    size: 10%;
+}
+
+/* Body */
+div.modal-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "area1 area2";
+    background-color: rgb(78, 65, 92);
+    padding-bottom: 2em;
+}
+div.modal-body>h5 {
+    margin: auto;
+}
+
+/* Content */
+.modal-content {
+    background-color:rgb(44, 29, 59);
+}
+
+/* Footer */
+div.modal-footer {
+    border: none;
+    background-color: rgb(48, 38, 59);
+}
+
+button.report-choice {
+    display: block;
+    border: none;
+    background-color: rgb(44, 29, 59);
+    margin: auto;
+    width: 70%;
+    height: 3em;
+    margin-bottom: 1em;
+}
+
+form.report-form {
+    grid-area: area2;
+}
+
+form.block-verification-modal {
+    margin: auto;
+}
+
+@keyframes modalFadeIn {
+    from {
+        transform: translate3d(-80%, 0, 0);
+    }
+
+    to {
+        transform: translate3d(0%, 0, 0);
+    }
+}
+
+.modal.fade:not(.in) .modal-dialog {
+    animation-name: modalFadeIn;
+    animation-duration: 0.5s;
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- JS Cookie -->
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+  </head>
+  <body>
+    Title
+    <input id="title" type="text" required />
+    <br />
+    PC
+    <input id="pc" type="checkbox" />
+    PS4
+    <input id="ps4" type="checkbox" />
+    XBOX
+    <input id="xbox" type="checkbox" />
+    SWITCH
+    <input id="switch" type="checkbox" />
+    <br />
+    CoverURL
+    <input id="coverURL" type="text" required />
+    <button id="submit" onClick="submitGameData()">Submit</button>
+    <script>
+      submitGameData = () => {
+        let title = document.querySelector("#title").value;
+        let pc = document.querySelector("#pc").checked;
+        let ps4 = document.querySelector("#ps4").checked;
+        let xbox = document.querySelector("#xbox").checked;
+        let switch_ = document.querySelector("#switch").checked;
+        let coverURL = document.querySelector("#coverURL").value;
+        let gameObject = {
+            title : title,
+            coverURL: coverURL,
+            platform: {
+              pc: pc,
+              ps4: ps4,
+              switch: switch_,
+              xbox: xbox,
+          },
+        };
+        console.log(gameObject);
+        fetch("/addGame", {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            "CSRF-Token": Cookies.get("XSRF-TOKEN"),
+          },
+          body: JSON.stringify({ gameObject }),
+        });
+      };
+    </script>
+  </body>
+</html>

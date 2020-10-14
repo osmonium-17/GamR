@@ -1,0 +1,251 @@
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+body {
+    font-family: 'Poppins', sans-serif;
+    /* background-color: white; */
+    background-image: url(https://wallpaperplay.com/walls/full/a/7/d/182541.jpg);
+    overflow: hidden;
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #999;
+}
+
+.dropdown-menu{
+    max-height: 40vh;
+    overflow-y: auto;
+}
+
+#game-dropdown-search {
+    margin-bottom: 0.5em;
+    width: 100%;
+    height: 2em;
+}
+
+a,
+a:hover,
+a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.navbar {
+    padding: 15px 10px;
+    background: #fff;
+    border: none;
+    border-radius: 0;
+    margin-bottom: 40px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-btn {
+    box-shadow: none;
+    outline: none !important;
+    border: none;
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px dashed #ddd;
+    margin: 40px 0;
+}
+
+i,
+span {
+    display: inline-block;
+}
+
+.btn-circle {
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+    border-radius: 35px;
+    font-size: 20px;
+    line-height: 1.33;
+}
+
+.btn-outline-success {
+    color: blueviolet;
+    border-color: blueviolet;
+}
+
+.btn-outline-success:hover {
+    background-color: blueviolet;
+    color: white;
+    border-color: blueviolet;
+}
+
+.profile-area {
+    height: 93vh;
+    display: grid;
+}
+
+#playerTitle {
+    float: left;
+}
+
+.userpageAvatar {
+    grid-area: image;
+    width: 300px;
+}
+
+.settings {
+    grid-row: 4;
+}
+
+#playerProfile-space {
+    padding-right: 20px;
+    grid-area: userprofile;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 3fr;
+    grid-template-areas: 
+        "image buttonbox"
+        "description description"
+    ;
+}
+
+#playerProfile-space.activate {
+    width: 50vw;
+}
+
+#player-description {
+    padding-top: 50px;
+    column-span: 2;
+    grid-area: description;
+    word-wrap: break-word;
+}
+
+#player-description>p {
+    color: white;
+}
+
+#playerProfile-buttonBox {
+    grid-area: buttonbox;
+    display:grid;
+    align-items: center;
+}
+
+.btn-purple-gradient {
+    width: 200px;
+    height: 50px;
+}
+
+#profile-Tilespace.activate {
+    width: 43vw;
+}
+
+#profile-Tilespace>h3 {
+    color: #fff;
+}
+
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+
+#content {
+    width: 100%;
+    padding: 20px;
+    min-height: 100vh;
+    transition: all 0.3s;
+}
+
+/* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
+
+h3 {
+    color: white;
+}
+
+#editbox {
+    background-color: rgb(47, 49, 54);
+    border-radius: 10px;
+    width: 60vw;
+    padding: 5px;
+    z-index: 2;
+    
+}
+
+#image-options>img {
+    width: 128px;
+    height: 128px;
+    object-fit: cover;
+}
+
+#image-options {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(250, 1fr);
+    grid-gap: 20px;
+    width: 59vw;
+    overflow-x: scroll;
+}
+
+#bio-box {
+    text-align: left;
+    width: 100%;
+    height: 10vh;
+}
+
+label {
+    color: rgb(200, 199, 199);
+}
+
+button {
+    border-radius: 5px;
+    border: 1px solid white;
+    color: white;
+    background-color: rgb(56, 6, 56);
+}
+
+.buttonCancelSubmit {
+    margin: 5px;
+}
+
+/* Scroll bar */
+#image-options::-webkit-scrollbar {
+    background-color: rgb(62, 9, 78);
+    border-radius: 10px;
+}
+
+#image-options::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgb(60, 0, 255); 
+    border-radius: 10px;
+}
+ 
+#image-options::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgb(255, 79, 79); 
+}
+
+
+/* Desktop view */
+@media (min-width: 1025px) {
+    #username-box { width: 33.33%; }
+    section {
+        display: flex;
+        justify-content: center;
+    }
+    #editbox { margin-top: 5%; }
+}
+
+/* Tablet/Mobile view */
+@media (max-width: 1024px) {
+    #username-box { width: 100%; }
+    #editbox {
+        height: 100vh;
+        width: 100vw;
+        position: relative;
+        top: 0;
+        left: 0;
+        padding: 20px;
+    }
+    #image-options { width: 100%; }
+}

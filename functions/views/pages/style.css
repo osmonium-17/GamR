@@ -1,0 +1,19 @@
+body {
+    background-color: darkslategrey;
+}
+
+#signup {
+    display: grid;
+}
+
+.gamrh1 {
+    margin-top: 1vh;
+    font-size: 5vh;
+}
+
+.navbar{
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    margin: 0;
+}

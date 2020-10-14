@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:url" content="https://marketleads.ca/main" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="GamR | Home" />
+  <meta property="og:description" content="Web app for gamers to discover friends and games." />
+  <title>GamR | Home</title>
+  <link rel="icon" href="../images/favicon.ico">
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+    integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+  <!-- Font Awesome JS -->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
+    integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous">
+  </script>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
+    integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous">
+  </script>
+
+  <!-- Popper.JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+    integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous">
+  </script>
+  <!-- Bootstrap JS -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+    integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous">
+  </script>
+
+  <!-- Main Page CSS -->
+  <link rel="stylesheet" href="/css/mainpage.css">
+  <!-- Report Block CSS -->
+  <link rel="stylesheet" href="/css/reportblock.css">
+</head>
+
+<body>
+  <!-- Facebook javascript -->
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0"></script>
+
+  <div id='containall' class="wrapper">
+    <!-- Sidebar -->
+    <nav id="sidebar">
+      <!-- Sidebar logo -->
+      <div class="sidebar-header active">
+        <img id='team-logo' class='active' src='images/logo.png'>
+      </div>
+
+      <!-- Sidebar selections -->
+      <ul class="list-unstyled components">
+        <li>
+          <!-- General -->
+          <a id="main-geneneral-btn" href="/main">
+            <i class="fas fa-cubes"></i>
+            <h6>General</h6>
+          </a>
+
+          <!-- Find Players
+          <a id="find-player-btn" href="/finder" data-toggle="collapse" aria-expanded="false">
+            <i class="fas fa-hands-helping"></i>
+            <h6>Find Players</h6>
+          </a> -->
+        </li>
+
+        <!-- Profile -->
+        <li>
+          <a id='profile-btn-sidebar-box' href="/profile">
+            <i class="fas fa-address-card"></i>
+            <h6>Profile</h6>
+          </a>
+        </li>
+        <!-- End -->
+
+        <!-- About Us -->
+        <li>
+          <a href="/aboutus">
+            <i id='aboutusicon' class="fas fa-coffee"></i>
+            <h6>About Us</h6>
+          </a>
+        </li>
+        <!-- End -->
+
+        <!-- Toggle Menu -->
+        <li>
+          <a href="#" id="sidebarCollapse">
+            <i id='toggleicon' class="fas fa-angle-double-left"></i>
+            <h6>Toggle Menu</h6>
+          </a>
+        </li>
+        <!-- End -->
+      </ul>
+
+      <!-- Logout -->
+      <ul class="list-unstyled components settings">
+        <li>
+          <a href="/logout" id="logoutButton">
+            <i class="fas fa-power-off"></i>
+            <h6>Logout</h6>
+          </a>
+        </li>
+      </ul>
+      <!-- End -->
+    </nav>
+
+    <!-- Widget at the top of page -->
+    <div id='playeravi-space' class="player-area ">
+      <a class="btn btn-primary session-maker" href="/lobby/create_lobby" role="button">Create Session</a>
+
+      <!-- Player photo -->
+      <img src="<%= avatar %>" class="rounded-circle avatar">
+
+      <!-- Player status -->
+      <div class="dropdown dropleft">
+        <!-- Status indicator -->
+        <img id='statusbox' name="<%=status%>" class="btn btn-secondary dropdown-toggle" type="button"
+          id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <!-- Status dropdown menu -->
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+          <button class="dropdown-item" type="button" id='onlineplayer'>Online</button>
+          <button class="dropdown-item" type="button" id='awayplayer'>Away</button>
+          <button class="dropdown-item" type="button" id='dndplayer'>Do Not Disturb</button>
+        </div>
+      </div>
+      <!-- Status indicator colour -->
+      <button id="egg" type="button" class="btn btn-secondary btn-outline-success btn-circle"> <i class="fas fa-comments"></i></button>
+      
+      <!-- Facebook
+      <div class="fb-share-button" data-href="https://marketleads.ca/main" data-layout="button" data-size="small">
+        <a target="_blank"
+          href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"
+          class="fb-xfbml-parse-ignore">
+            Share
+        </a>
+      </div>
+      <!-- Twitter -->
+      <!-- <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"
+        data-text="Come join me on GamR!" data-url="https://marketleads.ca/main" data-hashtags="gamr"
+        data-show-count="false">
+          Tweet
+      </a> -->
+      <!-- Twitter javascript -->
+      <!-- <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> --> -->
+    </div>
+    <!-- End -->
+
+    <!-- Carousel -->
+    <div id="carouselExampleIndicators" class="carousel slide " data-ride="carousel">
+      <!-- Number of pages in Carousel -->
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+      </ol>
+      <!-- End -->
+
+      <!-- Photos in Carousel -->
+      <div class="carousel-inner">
+        <!-- Overwatch -->
+        <div class="carousel-item active">
+          <a href="/session/Overwatch">
+            <img id="egg1" class="d-block w-100 active"
+              src="https://i.pinimg.com/originals/96/a1/e7/96a1e76de3ea8ac56df3bc4939a25253.jpg" alt="First slide">
+          </a>
+        </div>
+
+        <!-- Zelda: Breath of the Wild -->
+        <div class="carousel-item">
+          <a href="/session/ZeldaBreathoftheWild">
+            <img id="egg2" class="d-block w-100" src="https://i.redd.it/kpdoblsdkd8z.png" alt="Second slide">
+          </a>
+        </div>
+
+        <!-- World of Warcraft -->
+        <div class="carousel-item">
+          <a href="/session/WorldofWarcraft">
+            <img id="egg4" class="d-block w-100" src="https://i.imgur.com/olFxScr.jpg" alt="Third slide">
+          </a>
+        </div>
+
+        <!-- Dark Souls -->
+        <div class="carousel-item">
+          <a href="/session/DarkSouls">
+            <img id="egg3" class="d-block w-100" src="https://i.imgur.com/JSMnyeJ.jpg" alt="Third slide">
+          </a>
+        </div>
+      </div>
+
+      <!-- Carousel Control: Previous photo -->
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <!-- Carousel Control: Next photo -->
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+
+    <!-- Games Selection -->
+    <div id='gametitle-space' class='game-space '>
+
+      <% titles.forEach((game) => { %>
+      <!-- Overwatch -->
+      <div class='game-tile-back'>
+        <a href="/session/<%= game.titleID %>">
+          <img
+            src="<%= game.coverURL %>">
+        </a>
+      </div>
+      <% }); %>
+      
+    </div>
+    <!-- End -->
+  </div>
+
+  <!-- Javascript -->
+  <script src="/scripts/status.js"></script>
+  <script  src="/scripts/home.js"></script>
+</body>
+
+</html>

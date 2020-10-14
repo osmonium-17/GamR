@@ -1,0 +1,1107 @@
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: rgb(47, 49, 54);
+    overflow: hidden;
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #999;
+}
+
+a,
+a:hover,
+a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.navbar {
+    padding: 15px 10px;
+    background: #fff;
+    border: none;
+    border-radius: 0;
+    margin-bottom: 40px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-btn {
+    box-shadow: none;
+    outline: none !important;
+    border: none;
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px dashed #ddd;
+    margin: 40px 0;
+}
+
+i,
+span {
+    display: inline-block;
+}
+
+.btn-circle {
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+    border-radius: 35px;
+    font-size: 20px;
+    line-height: 1.33;
+}
+
+.btn-outline-success {
+    color: blueviolet;
+    border-color: blueviolet;
+}
+
+.btn-outline-success:hover {
+    background-color: blueviolet;
+    color: white;
+    border-color: blueviolet;
+}
+
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 0.5fr 3fr;
+    /* grid-template-rows: 1fr 10fr; */
+    align-items: stretch;
+    grid-template-areas:
+        "sidebar avatar avatar "
+        "sidebar userprofile gamelist"
+    ;
+}
+
+#sidebar {
+    grid-area: sidebar;
+    grid-row: span 2;
+    display: grid;
+    grid-template-rows: 1fr 4fr 1fr 0.5fr;
+    height: 100vh;
+    min-width: 250px;
+    max-width: 250px;
+    background-image: linear-gradient(rgb(104, 2, 104), black);
+    color: #fff;
+    transition: all 0.3s;
+    margin-right: 30px;
+}
+
+#sidebar.active {
+    grid-template-rows: 0.5fr 4fr 1fr 0.5fr;
+    min-width: 80px;
+    max-width: 80px;
+    text-align: center;
+    margin-right: 20px;
+}
+
+#sidebar.active .sidebar-header img {
+    width: 40px;
+}
+
+#sidebar.active .sidebar-header h3,
+#sidebar.active .CTAs {
+    display: none;
+}
+
+#sidebar.active .sidebar-header strong {
+    display: block;
+}
+
+#sidebar ul li a {
+    text-align: left;
+}
+
+#sidebar.active ul li a {
+    padding: 20px 10px;
+    text-align: center;
+    font-size: 0.85em;
+}
+
+#sidebar.active ul li a i {
+    margin-right: 0;
+    display: block;
+    font-size: 1.8em;
+    margin-bottom: 5px;
+}
+
+#sidebar.active ul ul a {
+    padding: 10px !important;
+}
+
+#sidebar.active .dropdown-toggle::after {
+    top: auto;
+    bottom: 10px;
+    right: 50%;
+    -webkit-transform: translateX(50%);
+    -ms-transform: translateX(50%);
+    transform: translateX(50%);
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background-color: transparent;
+}
+
+#sidebar.active .sidebar-header {
+    padding: 0px;
+}
+
+#sidebar .sidebar-header strong {
+    display: none;
+    font-size: 1.8em;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+
+#sidebar ul li a:hover {
+    color: #7386D5;
+    background: #fff;
+}
+
+#sidebar ul li a i {
+    margin-right: 10px;
+}
+
+#sidebar ul li.active>a,
+a[aria-expanded="true"] {
+    color: #fff;
+    background: #6d7fcc;
+}
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #6d7fcc;
+}
+
+ul.CTAs {
+    padding: 20px;
+
+}
+
+ul.CTAs a {
+    text-align: center;
+    font-size: 0.9em !important;
+    display: block;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+a.download {
+    background: #fff;
+    color: #7386D5;
+}
+
+a.article,
+a.article:hover {
+    background: #6d7fcc !important;
+    color: #fff !important;
+}
+
+#team-logo {
+    width: 200px;
+}
+
+#containall.activate {
+    grid-template-columns: 0.3fr 7fr;
+}
+
+.player-area {
+    height: 5vh;
+    grid-area: avatar;
+    column-span: 2;
+    padding-top: 5px;
+    margin-bottom: 5px;
+    padding-right: 20px;
+}
+
+.player-area>button {
+    float: right;
+}
+
+.player-area>h3 {
+    color: #fff;
+}
+
+.player-area>.avatar {
+    float: right;
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+}
+
+.dropdown>img {
+    float: right;
+    position: relative;
+    left: 60px;
+    top: 25px;
+    width: 10px;
+    background-color: lime;
+}
+
+/* ---------------------------------------------------
+    SCROLLBAR
+----------------------------------------------------- */
+#gamesList::-webkit-scrollbar {
+    background-color: rgb(62, 9, 78);
+    border-radius: 10px;
+    /* width: 0px;
+    background: transparent; */
+}
+
+#gamesList::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgb(60, 0, 255);
+    border-radius: 10px;
+}
+
+#gamesList::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgb(255, 79, 79);
+}
+
+/* -------------------------------------------------- */
+#gamesList.activate {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    width: 43vw;
+}
+
+#gametitle-space>a>img {
+    object-fit: cover;
+    width: 200px;
+    height: 200px;
+}
+
+#social-console-block {
+    display: flex;
+    justify-content: space-between;
+    justify-items: center;
+    margin-bottom: 20px;
+}
+
+.btn-purple-gradient {
+    margin-bottom: 20px;
+}
+
+#platforms-columns {
+    display: flex;
+    margin-left: 20px;
+    margin-top: 70px;
+}
+
+#playerTitle {
+    float: left;
+}
+
+.settings {
+    grid-row: 4;
+}
+
+#player-description {
+    width: 100%;
+    grid-area: description;
+    word-wrap: break-word;
+    overflow: scroll;
+    overflow-x: hidden;
+    scrollbar-width: none;
+}
+
+#player-description>p {
+    color: white;
+    
+}
+
+#playerProfile-buttonBox {
+    grid-area: buttonbox;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+}
+
+.btn-purple-gradient {
+    width: 200px;
+}
+
+h6 {
+    display: inline;
+}
+
+h6.active {
+    display: none;
+}
+
+i {
+    display: inline;
+}
+
+
+aside {
+    grid-area: aside;
+}
+
+header {
+    grid-area: header;
+}
+
+section {
+    grid-area: section;
+}
+
+#userDetails {
+    grid-area: userDetails;
+}
+
+#userImgBtnSpace {
+    grid-area: imgBtnSpace;
+}
+
+#profilePhoto {
+    grid-area: profilePhoto;
+}
+
+#profileButton {
+    grid-area: profileButton;
+}
+
+#gamingPlatform {
+    grid-area: gamingPlatform;
+}
+
+#profileDescription {
+    grid-area: profileDescription;
+}
+
+#gamesList {
+    grid-area: gamesList;
+}
+
+#socialPlatform {
+    grid-area: socialPlatform;
+}
+
+#profileBioHeader {
+    grid-area: profileBioHeader;
+}
+
+/* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
+/* Desktop view */
+@media (min-width: 1830px) {
+    h3 { color: white; }
+
+    main {
+        display: grid;
+
+        grid-template-columns: 0.5fr 6fr;
+        grid-template-areas:
+            "aside header"
+            "aside section";
+    }
+
+    section {
+        display: grid;
+
+        grid-template-columns: 1fr 1.5fr;
+        grid-template-areas:
+            "userDetails gamesList";
+
+        /* height: 90vh; */
+
+        overflow-x: hidden;
+        overflow-y: hidden;
+    }
+
+    #userDetails {
+        display: grid;
+        grid-template-areas:
+            "imgBtnSpace"
+            "profileDescription";
+        grid-template-rows: 1fr 6fr;
+    }
+
+    #userImgBtnSpace {
+        display: flex;
+        justify-items: center;
+        justify-content: center;
+    }
+
+    #div-socialPlatform {
+        margin: 10px;
+        text-align: left;
+    }
+
+    #div-console {
+        margin: 10px;
+        text-align: left;
+    }
+
+    #div-games {
+        margin: 10px;
+        margin-top: 30px;
+        text-align: left;
+    }
+
+    #gamesList {
+        height: 92vh;
+        width: 100%;
+        overflow-y: scroll;
+        scrollbar-width: none;
+    }
+
+    #gametitle-space {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    #gametitle-space>div>a>img {
+        object-fit: cover;
+        width: 230px;
+        height: 300px;
+        padding: 5px;
+    }
+
+    #platform-space {
+        display: flex;
+        flex-direction: column;
+        margin-left: 20px;
+    }
+
+    #platform-space>div>img {
+        margin-top: 10px;
+        height: 50px;
+        width: 50px;
+        object-fit: fill;
+    }
+
+    #player-description { padding: 0px; }
+
+    #profileAvatar {
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        justify-content: center;
+        /* padding-top: 50px; */
+    }
+
+    #profileAvatar > div {
+        margin-top: 10px;
+        display: flex;
+    }
+
+    #profileButton {
+        display: flex;
+        margin-top: 30px;
+        justify-content: center;
+    }
+
+    #profileDescription {
+        padding: 10px;
+        width: 100%;
+        height: 40vh;
+        position: relative;
+        margin: 0px auto 0px auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+        border-top: 2px solid rgb(241, 230, 239);
+        border-bottom: 2px solid rgb(241, 230, 239);
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+
+    #profileDescription::-webkit-scrollbar {
+        width: 0px;  
+        background: transparent;
+    }
+
+    #profileName { margin: 20px; }
+
+    #sidebar {
+        margin: 0px;
+    }
+
+    #social-platforms {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #social-platforms>div>img {
+        margin-top: 10px;
+        height: 50px;
+        width: 50px;
+        object-fit: cover;
+    }
+
+    .userpageAvatar {
+        grid-area: image;
+        height: 300px;
+        width: 300px;
+        object-fit: cover;
+    }
+}
+
+@media (min-width: 1525px) and (max-width: 1829px) {
+    h3 { color: white; }
+
+    main {
+        display: grid;
+
+        grid-template-columns: 1fr 6fr;
+        grid-template-areas:
+            "aside header"
+            "aside section";
+    }
+
+    section {
+        display: grid;
+
+        grid-template-columns: 1fr 1.5fr;
+        grid-template-areas:
+            "userDetails gamesList";
+        
+        /* height: 90vh; */
+
+        overflow-x: hidden;
+        overflow-y: hidden;
+    }
+
+    #userDetails {
+        display: grid;
+        grid-template-areas:
+            "imgBtnSpace"
+            "profileDescription";
+        grid-template-rows: 1fr 6fr;
+    }
+
+    #userImgBtnSpace {
+        display: flex;
+        justify-items: center;
+        justify-content: center;
+    }
+
+    #div-socialPlatform {
+        margin: 10px;
+        text-align: left;
+    }
+    #div-console {
+        margin: 10px;
+        text-align: left;
+    }
+    #div-games {
+        margin: 10px;
+        margin-top: 30px;
+        text-align: left;
+    }
+
+    #gamesList {
+        height: 92vh;
+        width: 100%;
+        overflow-y: scroll;
+    }
+
+    #gametitle-space {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    #gametitle-space>div>a>img {
+        object-fit: cover;
+        width: 230px;
+        height: 300px;
+        padding: 5px;
+    }
+
+    #platform-space {
+        display: flex;
+        flex-direction: column;
+        margin-left: 20px;
+    }
+
+    #platform-space>div>img {
+        margin-top: 10px;
+        height: 50px;
+        width: 50px;
+        object-fit: fill;
+    }
+
+    #player-description {
+        padding: 0px;
+    }
+
+    #profileAvatar {
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        justify-content: center;
+        /* padding-top: 50px; */
+    }
+
+    #profileAvatar > div {
+        margin-top: 10px;
+        display: flex;
+    }
+
+    #profileButton {
+        display: flex;
+        margin-top: 30px;
+        justify-content: center;
+    }
+
+    #profileDescription {
+        padding: 10px;
+        width: 100%;
+        height: 40vh;
+        position: relative;
+        margin: 0px auto 0px auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+        border-top: 2px solid rgb(241, 230, 239);
+        border-bottom: 2px solid rgb(241, 230, 239);
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+
+    #profileDescription::-webkit-scrollbar {
+        width: 0px;
+        background: transparent;
+    }
+
+    #profileName {
+        margin: 20px;
+    }
+
+    #sidebar {
+        margin: 0px;
+    }
+
+    #social-platforms {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    #social-platforms>div>img {
+        margin-top: 10px;
+        height: 50px;
+        width: 50px;
+        object-fit: cover;
+    }
+
+    .userpageAvatar {
+        grid-area: image;
+        height: 300px;
+        width: 300px;
+        object-fit: cover;
+    }
+}
+
+/* Tablet view */
+@media (max-width: 1524px) {
+    #toggleList { display: none; }
+
+    #containall {
+        grid-template-columns: 0.3fr 7fr;
+    }
+    
+    h3 { color: white; }
+
+    main {
+        display: grid;
+
+        grid-template-columns: 1fr 8fr;
+        grid-template-areas:
+            "aside header"
+            "aside section";
+    }
+
+    section {
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "userDetails gamesList";
+        height: 90vh;
+
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+
+    #userDetails {
+        display: grid;
+        grid-template-areas:
+            "imgBtnSpace"
+            "profileDescription";
+        grid-template-rows: 1fr 2fr;
+    }
+
+    #userImgBtnSpace {
+        display: flex;
+        justify-items: center;
+        justify-content: center;
+    }
+
+    #div-socialPlatform {
+        margin: 20px;
+        text-align: center;
+    }
+
+    #div-console {
+        margin: 20px;
+        margin-top: 40px;
+        text-align: center;
+    }
+
+    #div-games {
+        margin: 20px;
+        margin-top: 40px;
+        text-align: center;
+    }
+
+    #gamesList {
+        height: 55vh;
+        width: 100%;
+    }
+
+    #gametitle-space {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    #gametitle-space>div>a>img {
+        width: 230px;
+        height: 300px;
+        object-fit: fill;
+        padding: 5px;
+    }
+
+    #platform-space {
+        display: flex;
+        flex-direction: column;
+        margin-left: 20px;
+    }
+
+    #platform-space>div>img {
+        margin-top: 10px;
+        height: 50px;
+        width: 50px;
+        object-fit: fill;
+    }
+
+    #player-description {
+        padding: 0px;
+    }
+
+    #profileAvatar {
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        justify-content: center;
+        /* padding-top: 50px; */
+    }
+
+    #profileAvatar > div {
+        margin-top: 10px;
+        display: flex;
+    }
+
+    #profileButton {
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+    }
+
+    #profileDescription {
+        padding: 10px;
+        width: 100%;
+        height: 40vh;
+        position: relative;
+        margin: 0px auto 0px auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+        border-top: 2px solid rgb(241, 230, 239);
+        border-bottom: 2px solid rgb(241, 230, 239);
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+
+    #profileDescription::-webkit-scrollbar {
+        width: 0px;
+        background: transparent;
+    }
+
+    #profileName {
+        margin: 5px;
+    }
+
+    #sidebar {
+        margin: 0px;
+    }
+
+    #social-platforms {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    #social-platforms>div>img {
+        margin-top: 10px;
+        height: 50px;
+        width: 50px;
+        object-fit: cover;
+    }
+
+    .userpageAvatar {
+        grid-area: image;
+        height: 300px;
+        width: 300px;
+        object-fit: cover;
+    }
+
+    /* Sidebar */
+    #sidebar {
+        grid-template-rows: 0.5fr 4fr 1fr 0.5fr;
+        min-width: 80px;
+        max-width: 80px;
+        text-align: center;
+    }
+
+    #sidebar .sidebar-header {
+        padding: 0px;
+    }
+
+    #sidebar .sidebar-header img {
+        width: 80px;
+    }
+
+    #sidebar .sidebar-header h3,
+    #sidebar .CTAs {
+        display: none;
+    }
+
+    #sidebar .sidebar-header strong {
+        display: block;
+    }
+
+    #sidebar ul li a {
+        padding: 20px 10px;
+        text-align: center;
+        font-size: 0.85em;
+    }
+
+    #sidebar ul li a i {
+        margin-right: 0;
+        display: block;
+        font-size: 1.8em;
+        margin-bottom: 5px;
+    }
+
+    #sidebar ul ul a {
+        padding: 10px !important;
+    }
+
+    #sidebar .dropdown-toggle::after {
+        top: auto;
+        bottom: 10px;
+        right: 50%;
+        -webkit-transform: translateX(50%);
+        -ms-transform: translateX(50%);
+        transform: translateX(50%);
+    }
+
+    h6 {
+        display: none;
+    }
+}
+
+@media (max-width: 1350px) {
+    section {
+        display: grid;
+
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "userDetails"
+            "gamesList";
+        height: 90vh;
+
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+
+    #profileAvatar {
+        margin-bottom: 20px;
+    }
+
+    #userDetails {
+        grid-template-rows: 1fr 1fr;
+    }
+
+    #gametitle-space {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 1026px) {
+    #gametitle-space {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 796px) {
+    #gametitle-space {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 650px) {
+    #userImgBtnSpace {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    #platform-space>div>img {
+        margin-left: 10px;
+    }
+
+    #social-platforms>div>img {
+        margin-left: 10px;
+    }
+
+    #platforms-columns {
+        flex-direction: column;
+        margin-top: 0px;
+        margin-left: 0px;
+        margin-bottom: 20px;
+    }
+
+    #social-platforms {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    #platform-space {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    #playerProfile-buttonBox {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    #profileAvatar {
+        align-items: center;
+    }
+}
+
+@media (max-width: 561px) {
+    #gametitle-space>div>a>img {
+        width: 180px;
+        height: 250px;
+        object-fit: fill;
+        padding: 5px;
+    }
+
+    #playerProfile-buttonBox {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Mobile view */
+@media (max-width: 500px) {
+    #gametitle-space>div>a>img {
+        width: 90%;
+        width: 150px;
+        height: 220px;
+    }
+
+    .userpageAvatar {
+        grid-area: image;
+        height: 200px;
+        width: 200px;
+        object-fit: cover;
+    }
+}
+
+@media (max-width: 405px) {
+    #playerTitle {
+        font-size: medium;
+    }
+
+    #gametitle-space>div>a>img {
+        width: 120px;
+        height: 190px;
+    }
+
+    #platform-space > div > img {
+        height: 50px;
+        width: 50px;
+    }
+
+    #social-platforms > div > img {
+        height: 50px;
+        width: 50px;
+    }
+}
+
+.fa-centos {
+    color: white;
+}
+
+#sidebar.active .sidebar-header img {
+    width: 80px;
+}
+
+#profile-btn-sidebar-box {
+    color: #7386D5;
+    background: #fff;
+}
+
+#gamesList::-webkit-scrollbar { display: none; }

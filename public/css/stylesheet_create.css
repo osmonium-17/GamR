@@ -1,0 +1,156 @@
+main {
+    display: grid;
+    grid-template-areas:
+        "header"
+        "aside"
+        "section"
+        "article"
+        "footer";
+}
+
+/* Layout */
+header {
+    grid-area: header;
+    padding: 10px;
+}
+
+aside {
+    grid-area: aside;
+    text-align: center;
+}
+
+section {
+    grid-area: section;
+}
+
+article {
+    grid-area: article;
+    text-align: center;
+}
+
+footer {
+    grid-area: footer;
+    display: flex;
+    justify-content: center;
+}
+
+body {
+    background-color: rgb(47,49,54);
+}
+
+/* General */
+h3 {
+    color: white;
+}
+
+p {
+    color: white;
+}
+
+.chatId {
+    float: left;
+    margin-left: 5px;
+    padding: 10px;
+}
+
+.buttonClose {
+    float: right;
+    padding: 7px;
+}
+
+.card {
+    width: 70vw;
+    position: relative;
+    top: 20vh;
+    left: 13vw;
+}
+
+.card-header {
+    background-color: rgb(64,68,75);
+}
+
+.card-body {
+    background-color: rgb(78,65,92);
+    border: none;
+}
+
+.card-footer {
+    background-color:rgb(78,65,92);
+    border: none;
+}
+
+/* Desktop view */
+@media (min-width: 1025px) {
+    main {
+        grid-template-columns: repeat (1, 1fr);
+        grid-template-areas:
+            "header"
+            "aside"
+            "section"
+            "article"
+            "footer";
+    }
+
+    /* Desktop view */
+    #item1 { display: block; }
+    #item1-2 { display: none; }
+}
+
+/* Tablet view */
+@media (min-width: 451px) and (max-width: 1024px) {
+    main {
+        grid-template-columns: repeat (1, 1fr);
+        grid-template-areas:
+            "header"
+            "aside"
+            "section"
+            "article"
+            "footer";
+    }
+
+    /* Tablet view */
+    #item1 { display: none; }
+    #item1-2 { display: block; }
+
+    .card {
+        height: 100vh;
+        width: 100vw;
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+
+    .card-body { padding: 10px; }
+
+    button { display: block; }
+}
+
+/* Mobile view */
+@media (max-width: 450px) {
+    main {
+        grid-template-columns: repeat (1, 1fr);
+        grid-template-areas:
+            "header"
+            "aside"
+            "section"
+            "article"
+            "footer";
+    }
+
+    /* Mobile view */
+    #item1 { display: none; }
+    #item1-2 { display: block; }
+
+    .card {
+        height: 100vh;
+        width: 100vw;
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+
+    .card-body { padding: 2px; }
+
+    .chatId { padding: 0px; }
+    .buttonClose { padding: 0px; }
+}

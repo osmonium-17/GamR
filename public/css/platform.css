@@ -1,0 +1,27 @@
+body {
+	background-color: #333333;
+}
+
+img {
+	width: 196px;
+	height: 215px;
+}
+
+a {
+	position: relative;
+	top: 50px;
+}
+
+.whitebox {
+	position: relative;
+	background-color: #fff;
+	margin: 5%;}
+
+.buttonHome {
+display: flex;
+justify-content: center;
+}
+
+p {
+	text-align: center;
+}
