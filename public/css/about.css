@@ -20,6 +20,22 @@ h2.first {
   justify-content: center;
 }
 
+.user-tile:hover {
+  box-shadow: 5px 10px 10px rgb(206, 206, 206) !important;
+}
+
+.user-tile:active {
+  background-color: rgb(238, 238, 238) !important;
+}
+
+.git-link {
+  color:black;
+}
+
+.git-link:hover {
+  color:black;
+}
+
 /* Tablet view */
 @media (min-width: 500px) and (max-width: 1000px) {
   .logo {
