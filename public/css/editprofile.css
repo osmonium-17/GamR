@@ -4,7 +4,6 @@ body {
     font-family: 'Poppins', sans-serif;
     /* background-color: white; */
     background-image: url(https://wallpaperplay.com/walls/full/a/7/d/182541.jpg);
-    overflow: hidden;
 }
 
 p {
@@ -167,10 +166,10 @@ h3 {
 #editbox {
     background-color: rgb(47, 49, 54);
     border-radius: 10px;
-    width: 60vw;
+    width: 70vh;
     padding: 5px;
     z-index: 2;
-    
+    overflow-x: hidden;
 }
 
 #image-options>img {
