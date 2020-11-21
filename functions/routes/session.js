@@ -7,7 +7,17 @@ const chat = require("../handlers/chat");
 
 router.get("/chat", auth.authCheck, user.getUserData, chat.renderChat);
 
+router.post("/currentChat", auth.authCheck, user.getUserData, (req, res) => {
+  if (!req.user.lobbyID) {
+    res.sendStatus(404);
+  } else {
+    res.sendStatus(200);
+  }
+})
+
 router.post("/leaveChat", auth.authCheck, chat.leaveChat);
+
+router.post("/closeChat", auth.authCheck, chat.closeChat);
 
 router.get("/profile/:profileID", auth.authCheck, user.getUserData, user.shareData, (req, res) => {
     res.render("pages/view_profile", {

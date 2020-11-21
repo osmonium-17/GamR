@@ -48,7 +48,6 @@ exports.getLobby = (req, res) => {
     .doc(req.params.lobbyID)
     .get()
     .then((doc) => {
-      console.log("DSADSADASDASDADA" + doc.data())
       res.render("pages/lobby", {
         title: doc.data().title,
         numOfPlayers: doc.data().numOfPlayers,

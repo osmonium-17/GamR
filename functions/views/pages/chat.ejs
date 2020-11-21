@@ -189,10 +189,16 @@
           </div>
           <!-- End -->
 
-          <!-- LEAVE CHAT button -->
-          <div class="buttonLeave">
-            <button type="button" id="leave" class="btn btn-danger">Leave Chat</button>
-          </div>
+          <!-- LEAVE/CLOSE CHAT button -->
+          <% if (userID === hostID) { %>
+            <div class="buttonClose">
+              <button type="button" id="close" class="btn btn-danger">Close Chat</button>
+            </div>
+          <% } else { %>
+            <div class="buttonLeave">
+              <button type="button" id="leave" class="btn btn-danger">Leave Chat</button>
+            </div>
+          <% } %>
           <!-- End -->
         </div>
       </div>
@@ -236,6 +242,7 @@
         <!-- Hidden fields that store relevant user data for use in updating database details -->
         <input id='secret-port' type="hidden" value="<%=lobbyID%>">
         <input id='name-store' type="hidden" value="<%=userName%>">
+        <input id='host-store' type="hidden" value="<%=hostID%>">
         <input id='id-store' type="hidden" value="<%=userID%>">
       </div>
     </main>
