@@ -521,23 +521,48 @@ Allows the host to remove a problematic player by kicking them from the lobby re
 //   });
 // });
 
-/*
-Allows the user to leave the chat which removes the user ID from the lobby database.
-*/
 let lobbyID = $("#secret-port").val();
 let userID = $("#id-store").val();
-document.getElementById("leave").onclick = function () {
-  $.ajax({
-    url: "/session/leaveChat",
-    type: "POST",
-    headers: {
-      "CSRF-Token": Cookies.get("XSRF-TOKEN"),
-    },
-    data: {
-      "CSRF-Token": Cookies.get("XSRF-TOKEN"),
-      userKey: userID,
-      lobbyKey: lobbyID,
-    },
-    success: () => location.href = "/main"
-  })
-};
+let hostID = $("#host-store").val();
+
+if (userID === hostID) {
+
+  //Allows the lobby owner to close the session, removing it from the database.
+  document.getElementById("close").onclick = function () {
+    $.ajax({
+      url: "/session/closeChat",
+      type: "POST",
+      headers: {
+        "CSRF-Token": Cookies.get("XSRF-TOKEN"),
+      },
+      data: {
+        "CSRF-Token": Cookies.get("XSRF-TOKEN"),
+        userKey: userID,
+        hostKey: hostID,
+        lobbyKey: lobbyID,
+      },
+      success: () => location.href = "/main"
+    })
+  }
+} else {
+
+  //Allows the user to leave the chat which removes the user ID from the lobby database.
+  document.getElementById("leave").onclick = function () {
+    $.ajax({
+      url: "/session/leaveChat",
+      type: "POST",
+      headers: {
+        "CSRF-Token": Cookies.get("XSRF-TOKEN"),
+      },
+      data: {
+        "CSRF-Token": Cookies.get("XSRF-TOKEN"),
+        userKey: userID,
+        lobbyKey: lobbyID,
+      },
+      success: () => location.href = "/main"
+    })
+  }
+}
+
+
+
