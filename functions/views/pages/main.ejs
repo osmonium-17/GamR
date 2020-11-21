@@ -37,6 +37,9 @@
     integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous">
   </script>
 
+  <!-- JS Cookie -->
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+
   <!-- Main Page CSS -->
   <link rel="stylesheet" href="/css/mainpage.css">
   <!-- Report Block CSS -->
@@ -46,7 +49,8 @@
 <body>
   <!-- Facebook javascript -->
   <div id="fb-root"></div>
-  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0"></script>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0">
+  </script>
 
   <div id='containall' class="wrapper">
     <!-- Sidebar -->
@@ -132,8 +136,8 @@
         </div>
       </div>
       <!-- Status indicator colour -->
-      <button id="egg" type="button" class="btn btn-secondary btn-outline-success btn-circle"> <i class="fas fa-comments"></i></button>
-      
+      <button id="egg" type="button" class="btn btn-secondary btn-outline-success btn-circle"> <i
+          class="fas fa-comments"></i></button>
       <!-- Facebook
       <div class="fb-share-button" data-href="https://marketleads.ca/main" data-layout="button" data-size="small">
         <a target="_blank"
@@ -215,19 +219,18 @@
       <!-- Overwatch -->
       <div class='game-tile-back'>
         <a href="/session/<%= game.titleID %>">
-          <img
-            src="<%= game.coverURL %>">
+          <img src="<%= game.coverURL %>">
         </a>
       </div>
       <% }); %>
-      
+
     </div>
     <!-- End -->
   </div>
 
   <!-- Javascript -->
   <script src="/scripts/status.js"></script>
-  <script  src="/scripts/home.js"></script>
+  <script src="/scripts/home.js"></script>
 </body>
 
 </html>

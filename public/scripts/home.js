@@ -34,6 +34,23 @@ clicking on the GamR logo at the top left of the page.
 */
 const EGGDELAY = 20000;
 $("#egg").on("click", () => {
+
+  // Redirects user to active chat, warns user if no chat session active
+  $.ajax({
+    url: "/session/currentChat",
+    method: "POST",
+    credentials: "same-origin",
+    headers: {
+      "CSRF-Token" : Cookies.get("XSRF-TOKEN"),
+    },
+    success: (response) => {
+      window.location = "/session/chat";
+    },
+    error: (response, status) => {
+      window.alert("You are not in an active chat")
+    }
+  })
+
   $("#team-logo").on("click", () => {
     $("body").addClass("egg");
     $("#egg1").attr("src", "images/travolta.webp");
