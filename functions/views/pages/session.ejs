@@ -80,7 +80,7 @@
     </nav>
 
     <div id="playeravi-space" class="player-area">
-      <input id="searcherbar" class="form-control searchbar" type="text" placeholder="Search" aria-label="Search" />
+      <a class="btn btn-primary session-maker" href="/lobby/create_lobby" role="button">Create Session</a>
 
       <img src="<%=avatar%>" class="rounded-circle avatar" />
 
@@ -124,6 +124,9 @@
           src="<%=lobbyArray[i].hostAvatar%>" />
       </div>
       <% x++; %> <% } %> <% } %>
+      <div id="noGamePopup">
+        <h5>There are currently no sessions available for <%=game%></h5>
+      </div>
     </div>
   </div>
 

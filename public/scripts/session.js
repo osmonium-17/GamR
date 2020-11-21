@@ -26,7 +26,6 @@ $(document).ready(function () {
     $('h6').toggleClass('active');
     $('.fa-power-off').toggleClass('active');
     $('#containall').toggleClass('activate');
-    $('#searcherbar').toggleClass('active');
     if (x == 1) {
       $('#toggleicon').removeClass('fa-angle-double-left');
       $('#toggleicon').addClass('fa-angle-double-right');
@@ -41,4 +40,8 @@ $(document).ready(function () {
   // Updates the session page wallpaper
   let wallpaper = wallpaperArray[$('#gameHider').val()];
   $('body').css('background-image', 'url(' + wallpaper + ')');
+
+  //No session handler.
+  let gameCount = $('.gameSessions').length;
+  if (gameCount === 0) $('#noGamePopup').css("display", "flex", "justify-content", "center");
 });

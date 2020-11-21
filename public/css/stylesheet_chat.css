@@ -334,7 +334,7 @@ main,
   float: right;
 }
 
-.buttonLeave {
+.buttonLeave, .buttonClose {
   margin-left: 5px;
 }
 
